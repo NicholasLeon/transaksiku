@@ -1,4 +1,4 @@
-import { getDashboardData } from "../../../lib/dashboard";
+import { getDashboardData } from "@/lib/dashboard";
 import { Receipt, ArrowUpRight, ArrowDownRight, Wallet, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import AddBank from "./addbank";
@@ -24,11 +24,11 @@ export default async function DashboardPage() {
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 space-y-6 sm:space-y-8">
         <section>
-          <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-4 sm:pb-6 no-scrollbar snap-x">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 sm:pb-6 no-scrollbar snap-x snap-mandatory -mx-4 px-8 sm:-mx-6 sm:px-10">
             {userBanks.map((bank) => (
               <div
                 key={bank.id}
-                className="snap-start min-w-[85vw] sm:min-w-[280px] bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between"
+                className="snap-center shrink-0 w-[85vw] sm:w-[280px] bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between"
               >
                 <div className="flex justify-between items-start mb-4 sm:mb-6">
                   <div className="w-10 h-10 bg-[#cbf3f0] rounded-full flex items-center justify-center text-[#2ec4b6]">
@@ -52,10 +52,11 @@ export default async function DashboardPage() {
         <section className="bg-white p-5 sm:p-6 rounded-3xl shadow-sm border border-gray-100">
           <div className="flex justify-between items-center mb-5 sm:mb-6">
             <h3 className="font-bold text-gray-800 text-base sm:text-lg">Riwayat Transaksi</h3>
-            <Link href="/dashboard/transactionslist" className="text-[#2ec4b6] text-sm font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity">
-            <button className="text-[#2ec4b6] text-sm font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity">
+            <Link 
+              href="/dashboard/transactionslist" 
+              className="text-[#2ec4b6] text-sm font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity"
+            >
               Lihat Semua <ChevronRight size={16} />
-            </button>
             </Link>
           </div>
 

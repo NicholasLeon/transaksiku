@@ -57,6 +57,7 @@ export function TransactionDetailView({ data }: DetailProps) {
                 <div className="relative aspect-[4/3] sm:aspect-video rounded-3xl overflow-hidden border-2 border-gray-50 bg-gray-50/50 group cursor-pointer">
                   <Image 
                     src={transaction.noteUrl} 
+                    unoptimized
                     sizes="(max-width: 768px) 100vw, 672px" 
                     alt="Nota" 
                     fill 
