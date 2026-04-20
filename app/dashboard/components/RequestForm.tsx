@@ -1,6 +1,6 @@
 "use client";
-import { useActionState } from "react"; // Import ini
-import { submitMoneyRequest } from "@/lib/request-actions";
+import { useActionState } from "react";
+import { submitMoneyRequest } from "@/lib/request-action";
 import { SendHorizontal } from "lucide-react";
 
 export default function RequestForm({ userId }: { userId: string }) {
@@ -12,12 +12,6 @@ export default function RequestForm({ userId }: { userId: string }) {
       <h3 className="font-bold text-gray-800 text-lg">Request Dana</h3>
       
       <div className="space-y-3">
-        <input 
-          name="name" 
-          placeholder="Nama Tujuan (Misal: Manager)" 
-          className="w-full p-3 rounded-xl bg-gray-50 border-none outline-[#2ec4b6] text-sm"
-          required 
-        />
         <input 
           name="email" 
           type="email"
@@ -38,7 +32,7 @@ export default function RequestForm({ userId }: { userId: string }) {
         </div>
         <textarea 
           name="description" 
-          placeholder="Keperluan (Misal: Reimbursment Makan Siang)" 
+          placeholder="Keperluan " 
           className="w-full p-3 rounded-xl bg-gray-50 border-none outline-[#2ec4b6] text-sm h-20"
         />
       </div>
