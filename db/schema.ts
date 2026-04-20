@@ -5,6 +5,7 @@ export const transactionType = pgEnum("type", ["INCOME", "EXPENSE"]);
 
 export const userRole = pgEnum("role", ["USER", "ADMIN"]);
 
+export const requestStatus = pgEnum("request_status", ["PENDING", "APPROVED", "REJECTED"]);
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
   name: text("name").notNull(),
@@ -31,6 +32,17 @@ export const transactions = pgTable("transactions", {
   noteUrl: text("note_url"),
   description: text("description"),
   date: timestamp("date").defaultNow().notNull(),
+});
+
+export const moneyRequests = pgTable("money_requests", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  userId: uuid("user_id").references(() => users.id).notNull(),
+  targetName: text("target_name").notNull(),
+  targetContact: text("target_contact").notNull(), // Bisa Email atau No WA
+  amount: doublePrecision("amount").notNull(),
+  description: text("description"),
+  status: requestStatus("status").default("PENDING").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({

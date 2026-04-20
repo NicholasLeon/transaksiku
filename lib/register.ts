@@ -52,8 +52,6 @@ export async function register(
       password: hashedPassword,
     });
 
-    redirect("/");
-
   } catch (err) {
     console.error(err);
     return {
@@ -61,4 +59,6 @@ export async function register(
       message: "Terjadi kesalahan pada server",
     };
   }
+
+  redirect("/");
 }

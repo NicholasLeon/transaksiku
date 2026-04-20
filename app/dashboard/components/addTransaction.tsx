@@ -197,7 +197,6 @@ export default function AddTransaction({ banks }: { banks: { id: string; name: s
                     type="file"
                     name="receipt"
                     accept="image/*"
-                    required
                     onChange={handleFileChange}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                   />
